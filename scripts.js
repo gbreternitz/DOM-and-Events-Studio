@@ -6,13 +6,21 @@ window.addEventListener("load", function() {
     // Declare objects  up here
     const takeoff = document.getElementById("takeoff");
     const landing = document.getElementById("landing");
-    const missionAbort = document.getElementById("missionAbort")
+    const missionAbort = document.getElementById("missionAbort");
+    const rocket = document.getElementById("rocket");
+
+    const up = document.getElementById("up");
+    const down = document.getElementById("down");
+    const left = document.getElementById("left");
+    const right = document.getElementById("right");
 
     let flightStatus = document.getElementById("flightStatus");
     let shuttleBackground = document.getElementById("shuttleBackground");
     let spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
 
-    //TODO: Take off button stuff
+    rocket.style.bottom = "0px";
+    rocket.style.position = "absolute";
+    rocket.style.left = "0px";
 
     takeoff.addEventListener("click", function () {
         takeoffFlag = window.confirm("Confirm that the shuttle is ready for takeoff."); // come back to this
@@ -40,6 +48,33 @@ window.addEventListener("load", function() {
             spaceShuttleHeight.innerHTML = '0';
         }
     })
+
+    up.addEventListener("click", function() {
+        let rocketTopNum = parseInt(rocket.style.bottom) + 10;
+        rocket.style.bottom = `${rocketTopNum}px`
+        console.log(rocket.style.bottom)
+    });
+
+    down.addEventListener("click", function() {
+        let rocketTopNum = parseInt(rocket.style.bottom) - 10;
+        rocket.style.bottom = `${rocketTopNum}px`
+        console.log(rocket.style.bottom)    
+    });
+
+    left.addEventListener("click", function() {
+        let rocketTopNum = parseInt(rocket.style.left) - 10;
+        rocket.style.left = `${rocketTopNum}px`
+        console.log(rocket.style.left)    
+    });
+
+    right.addEventListener("click", function() {
+        let rocketTopNum = parseInt(rocket.style.left) + 10;
+        rocket.style.left = `${rocketTopNum}px`
+        console.log(rocket.style.left)    
+    });
+
+        
+
 
 
 });
